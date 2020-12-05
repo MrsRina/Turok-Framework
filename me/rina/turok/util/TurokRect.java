@@ -1,14 +1,11 @@
-package me.rina.turok.math;
+package me.rina.turok.util;
 
-// Java.
-import java.awt.*;
+import me.rina.turok.hardware.mouse.TurokMouse;
 
 /**
- * @author Rina!
- *
- * Created by Rina in 27/07/2020.
- *
- **/
+ * @author SrRina
+ * @since 27/07/20 at 12:45pm
+ */
 public class TurokRect {
 	public int x;
 	public int y;
@@ -98,22 +95,29 @@ public class TurokRect {
 		return height;
 	}
 
-	public boolean collide(int x, int y) {
-		if (x >= getX() && x <= getX() + getWidth() && y >= getY() && y <= getY() + getHeight()) {
-			return true;
-		}
+	public int getDistance(TurokRect rect) {
+		int calculatedX = this.x - rect.getX();
+		int calculatedY = this.y - rect.getY();
 
-		return false;
+		int calculatedW = (this.x + this.width) - (rect.getX() + rect.getWidth());
+		int calculatedH = (this.y + this.height) - (rect.getY() + rect.getHeight());
+
+		return TurokMath.sqrt(calculatedX * calculatedW + calculatedY * calculatedH);
 	}
 
-	public boolean collide(TurokRect rect) {
-		if (this.x <= rect.getX() + rect.getWidth() &&
-				this.x + this.width >= rect.getX() &&
-				this.y <= rect.getY() + rect.getHeight() &&
-				this.y + this.height >= rect.getY()) {
-			return true;
-		}
+	public boolean collideWithMouse(TurokMouse mouse) {
+		return mouse.getX() >= this.x && mouse.getX() <= (this.x + this.width) && mouse.getY() >= this.y && mouse.getY() <= (this.y + this.height);
+	}
 
-		return false;
+	public boolean collideWithRect(TurokRect rect) {
+		return this.x <= (rect.getX() + rect.getWidth()) && (this.x + this.width) >= rect.getX() && this.y <= (rect.getY() + rect.getHeight()) && (this.y + this.height) >= rect.getY();
+	}
+
+	public static boolean collideRectWith(TurokRect rect, TurokMouse mouse) {
+		return rect.collideWithMouse(mouse);
+	}
+
+	public static boolean collideRectWith(TurokRect rect, TurokRect rect1) {
+		return rect.collideWithRect(rect1);
 	}
 }

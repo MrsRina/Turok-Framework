@@ -1,66 +1,60 @@
 package me.rina.turok.render.image;
 
-// Minecraft.
-import net.minecraft.client.renderer.texture.DynamicTexture;
-import net.minecraft.client.renderer.texture.TextureUtil;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.texture.DynamicTexture;
+import net.minecraft.util.ResourceLocation;
 
-// Javax.
 import javax.imageio.ImageIO;
-
-// Java.
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.io.InputStream;
 
 /**
- *
- * @author Rina.
- * @since 27/09/2020.
- *
- **/
-public class TurokImage extends DynamicTexture {
-	private String path;
+ * @author SrRina
+ * @since 27/09/20 at 12:49pm
+ */
+public class TurokImage {
+    private String path;
 
-	private BufferedImage bufferedImage;
+    private BufferedImage bufferedImage;
+    private ResourceLocation resourceLocation;
 
-	private ResourceLocation resourceLocation;
+    private DynamicTexture dynamicTexture;
 
-	public int w;
-	public int h;
+    public TurokImage(String path) {
+        this.path = path;
 
-	public TurokImage(String path, BufferedImage bufferedImage) {
-		super(bufferedImage);
+        try {
+            this.bufferedImage = ImageIO.read(TurokImage.class.getResourceAsStream(this.path));
+        } catch (IOException exc) {
+            exc.printStackTrace();
+        }
 
-		this.bufferedImage = bufferedImage;
+        this.dynamicTexture = new DynamicTexture(this.bufferedImage);
 
-		this.path = path;
-	
-		this.resourceLocation = Minecraft.getMinecraft().getTextureManager().getDynamicTextureLocation("turok/gui", this);
-	}
+        this.resourceLocation = Minecraft.getMinecraft().getTextureManager().getDynamicTextureLocation("", this.dynamicTexture);
+    }
 
-	public void setResourceLocation(ResourceLocation resourceLocation) {
-		this.resourceLocation = resourceLocation;
-	}
+    public int getWidth() {
+        return this.bufferedImage.getWidth();
+    }
 
-	public int getWidth() {
-		return this.bufferedImage.getWidth();
-	}
+    public int getHeight() {
+        return this.bufferedImage.getHeight();
+    }
 
-	public int getHeight() {
-		return this.bufferedImage.getHeight();
-	}
+    public String getPath() {
+        return path;
+    }
 
-	public ResourceLocation getResourceLocation() {
-		return resourceLocation;
-	}
+    public BufferedImage getBufferedImage() {
+        return bufferedImage;
+    }
 
-	public BufferedImage getBufferedImage() {
-		return bufferedImage;
-	}
+    public ResourceLocation getResourceLocation() {
+        return resourceLocation;
+    }
 
-	public String getPath() {
-		return path;
-	}
+    public DynamicTexture getDynamicTexture() {
+        return dynamicTexture;
+    }
 }

@@ -1,4 +1,4 @@
-package me.rina.turok.font.util;
+package me.rina.turok.render.font.hal;
 
 import net.minecraft.client.renderer.texture.DynamicTexture;
 

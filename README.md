@@ -32,7 +32,7 @@ TurokMouse mouse = new TurokMouse(int x, int y);
 ```
 
 # Utils;
-- TurokRect: Simple rect with coordinates and siez;
+- TurokRect: Simple rect with coordinates and sizes;
 - TurokMath: A lot math functions;
 - TurokClass: Reflection utils;
 - TurokDisplay: Display util, (require Minecraft);

@@ -170,6 +170,10 @@ public class TurokRenderGL {
 		release();
 	}
 
+	public static void drawScissor(TurokRect rect){
+		drawScissor(rect.getX(), rect.getY(), rect.getWidth(), rect.getHeight());
+	}
+	
 	public static void drawScissor(int x, int y, int w, int h) {
 		int calculatedX = x;
 		int calculatedY = y;

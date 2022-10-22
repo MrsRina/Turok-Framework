@@ -1,14 +1,14 @@
 # Turok-Framework
- Frameworker helper for anarchy client.
+Wrapper to make easy stuff for forge Minecraft 1.12.2
 
 # Render;
-- To init OpenGL helper in your Minecraft mod/client, follow the steps:
+- To initialise OpenGL helper follow the steps:
 
-In A constructor where you can init the TurokRenderGL:
+Invoke init function from TurokRenderGL at some constructor/one tick method.
 `TurokRenderGL.init()`
 
-There is a chance happens nullpointer except when you use scissor test or the shading effect with fade render;
-To fix you just need init the TurokMouse and TurokDisplay; OBS: Create in one loop;
+There is a chance to happens nullpointer except when you use scissor test or the gradient fade effect render;
+To fix you just need init the TurokMouse and TurokDisplay, create TurokDisplay and TurokMouse wrapper.
 ```
 TurokDisplay display = new TurokDisplay(Minecraft mc);
 TurokMouse mouse = new TurokMouse(int x, int y);
@@ -32,9 +32,9 @@ TurokMouse mouse = new TurokMouse(int x, int y);
 ```
 
 # Utils;
-- TurokRect: Simple rect with coordinates and sizes;
-- TurokMath: A lot math functions;
+- TurokRect: Simple rect with pos and size;
+- TurokMath: Math operations;
 - TurokClass: Reflection utils;
-- TurokDisplay: Display util, (require Minecraft);
-- TurokTick: Time utils to count or ticks;
-- TurokGeneric: Simple generic value;
+- TurokDisplay: Display util, (require Minecraft forge);
+- TurokTick: Timing utils;
+- TurokGeneric: Simple generic object;

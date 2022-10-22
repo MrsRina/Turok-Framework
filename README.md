@@ -1,9 +1,8 @@
 # Turok-Framework
 Wrapper with utils to help modding in Minecraft forge 1.12.2.
-
 It is called `framework` but it not one, this is a wrapper.
 
-# Render;
+# Render
 - To initialise OpenGL helper follow the steps:
 
 Invoke init function from TurokRenderGL at some constructor/one tick method.
@@ -20,20 +19,16 @@ TurokMouse mouse = new TurokMouse(int x, int y);
 Simple font system, first create one TurokFont (the real owner of font is Hal);
 ```
 TurokFont font = new TurokFont(Font font, bool alias, bool matric);
-
 TurokFontManager.render(TurokFont font, int x, int y, bool shadow, Color color);
 ```
 
-- Image:
-Error;
-
-# Hardware:
+# Hardware
 - Mouse:
 ```
 TurokMouse mouse = new TurokMouse(int x, int y);
 ```
 
-# Utils;
+# Utils
 - TurokRect: Simple rect with pos and size;
 - TurokMath: Math operations;
 - TurokClass: Reflection utils;

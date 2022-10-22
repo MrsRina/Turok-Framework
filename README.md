@@ -1,5 +1,5 @@
 # Turok-Framework
-Wrapper to make easy stuff for forge Minecraft 1.12.2
+Wrapper to make easy stuff to modding in Minecraft 1.12.2
 
 # Render;
 - To initialise OpenGL helper follow the steps:

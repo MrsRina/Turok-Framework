@@ -1,6 +1,6 @@
 # Turok-Framework
-Wrapper with utils to help modding in Minecraft forge 1.12.2.
-Turok-Framework use the suffix `framework`, but it is a wrapper and not a framework.
+Wrapper with utils to help modding in Minecraft forge 1.12.2.  
+The name use suffix `-framework`, but it is a wrapper and not a framework.
 
 # Render
 - To initialise OpenGL helper follow the steps:

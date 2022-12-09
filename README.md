@@ -1,6 +1,6 @@
 # Turok-Framework
 Wrapper with utils to help modding in Minecraft forge 1.12.2.
-It is called `framework` but it not one, this is a wrapper.
+It is called `framework` but it is not one, this is a wrapper.
 
 # Render
 - To initialise OpenGL helper follow the steps:
